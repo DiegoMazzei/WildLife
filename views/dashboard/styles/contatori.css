@@ -1,0 +1,64 @@
+/* Main */
+main {
+	display: grid;
+	grid-template-columns: 4fr 5fr;
+	grid-template-rows: 1fr 3fr;
+	grid-template-areas:
+		"counters linechart"
+		"piechart bo";
+	gap: 15px;
+	padding: 30px;
+}
+
+/* Widgets */
+.piechart, .linechart, .counters{
+	background-color: white;
+	border-radius: 20px;
+	color: black;
+
+	/* Makes the items fit the grid */
+	min-width: 0;
+	min-height: 0;
+}
+
+/* Linechart */
+.linechart {
+	grid-area: linechart;
+	padding: 10px;
+}
+
+/* Piechart */
+.piechart {
+	grid-area: piechart;
+	padding: 30px;
+}
+
+/* Contatori */
+.counters {
+	display: flex;
+	justify-content: space-around;
+	grid-area: counters;
+	align-items: center;
+}
+
+.counters .counter-containers {
+	display: flex;
+	flex-direction: column;
+}
+
+.counters .counter {
+	font-size: 45px;
+	margin: 10px 0;
+}
+
+@media (max-width: 700px) {
+	.counters .container {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.counters .container > div:nth-of-type(1),
+	.counters .container > div:nth-of-type(2) {
+		border-bottom: 1px lightskyblue solid;
+		padding-bottom: 20px;
+	}
+}
